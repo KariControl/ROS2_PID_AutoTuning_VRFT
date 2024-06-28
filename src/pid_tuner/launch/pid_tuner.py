@@ -13,8 +13,8 @@ def generate_launch_description():
         output='screen',
         parameters=[{
         'time_const': 1.0,  # 時定数T
-        'max_data_points': 100,  # データ数
-        'diff_time': 0.1,  # データ数
+        'max_data_points': 1000,  # データ数
+        'diff_time': 0.1,  # サンプリング時間
         }]
     )
 

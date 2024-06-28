@@ -29,11 +29,13 @@ private:
     bool is_fit_calculated_;
     double time_constant_;
     rclcpp::Subscription<controller_msgs::msg::PlantInfo>::SharedPtr subscription_;
+    rclcpp::Publisher<controller_msgs::msg::PlantInfo>::SharedPtr test_publisher_;
+
     // const controller_msgs::msg::PlantInfo::SharedPtr msg;
     double diff_time_;//差分時間
-    double k1;//ルンゲクッタ係数
-    double k2;//ルンゲクッタ係数
-    double k3;//ルンゲクッタ係数
-    double k4;//ルンゲクッタ係数
+    double k1;//ルンゲクッタ中間変数1
+    double k2;//ルンゲクッタ中間変数2
+    double k3;//ルンゲクッタ中間変数3
+    double k4;//ルンゲクッタ中間変数4
 };
 #endif  // PID_TUNER_HPP_
