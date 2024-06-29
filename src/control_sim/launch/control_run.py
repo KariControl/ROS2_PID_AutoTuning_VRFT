@@ -6,19 +6,18 @@ pkg_name = 'control_sim'
 
 def generate_launch_description():
     ld = LaunchDescription()
-
-    config1 = os.path.join(
-        pkg_name,
-        'config'
-    )    
-
-    node1 = Node(
+    node = Node(
         package=pkg_name,
         executable='control_sim',
         name='control_sim',
         output='screen',
-        parameters=[config1]
+        parameters=[{
+        'kp': 2.110582,  # 比例ゲイン デフォルト0.2
+        'ki': 0.125190,  # 積分ゲイン　デフォルト0.3
+        'kd': 0.05,  # 微分ゲイン
+        'dt': 0.01,  # サンプリング時間
+        }]
     )
 
-    ld.add_action(node1)
+    ld.add_action(node)
     return ld
