@@ -2,7 +2,6 @@
 #define PID_TUNER_HPP_
 
 #include <deque>
-#include <geometry_msgs/msg/point.hpp>
 #include <eigen3/Eigen/Dense>
 #include <rclcpp/rclcpp.hpp>
 #include <controller_msgs/msg/plant_info.hpp>
@@ -21,17 +20,20 @@ public:
 
 private:
     void tuning_callback(const controller_msgs::msg::PlantInfo::SharedPtr msg);
-    double compute_Td(double u);
+    double compute_ve(double u);//参照モデルTd1の計算処理
+    double compute_vu(double u);//参照モデルTd2の計算処理
+
     std::deque<double> x_data_;
     std::deque<double> y_data_;
     double integral_;//積分値
-    size_t max_data_points_;
+    size_t max_data_points_;//最大データ点数
     bool is_fit_calculated_;
-    double time_constant_;
+    double time_constant_;//参照モデルの時定数
+    int mode_selector_;
+
     rclcpp::Subscription<controller_msgs::msg::PlantInfo>::SharedPtr subscription_;
     rclcpp::Publisher<controller_msgs::msg::PlantInfo>::SharedPtr test_publisher_;
 
-    // const controller_msgs::msg::PlantInfo::SharedPtr msg;
     double diff_time_;//差分時間
     double k1;//ルンゲクッタ中間変数1
     double k2;//ルンゲクッタ中間変数2

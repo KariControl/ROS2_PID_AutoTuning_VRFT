@@ -31,7 +31,7 @@ ControllerNode::ControllerNode(
     controller_publisher_ = this->create_publisher<geometry_msgs::msg::TwistStamped>("steering", 1);
 
     using namespace std::literals::chrono_literals; // これが無いと、create_wall_timer等での100msとかの時間単位付きの変数を指定できない
-    timer_ = this->create_wall_timer(100ms, std::bind(&ControllerNode::timer_callback, this));
+    timer_ = this->create_wall_timer(10ms, std::bind(&ControllerNode::timer_callback, this));
 }
 void ControllerNode::state_callback(const sensor_msgs::msg::Imu::SharedPtr msg) {
     yaw_rate_ = msg->angular_velocity.z;

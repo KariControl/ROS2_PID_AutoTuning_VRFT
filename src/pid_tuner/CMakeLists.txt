@@ -9,7 +9,6 @@ endif()
 find_package(ament_cmake REQUIRED) # amet_cmakeは必要
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
-find_package(geometry_msgs REQUIRED)
 find_package(controller_msgs REQUIRED)
 find_package(Eigen3 REQUIRED)
 
@@ -23,7 +22,6 @@ add_executable(pid_tuner
 ament_target_dependencies(pid_tuner
   rclcpp
   std_msgs
-  geometry_msgs
   Eigen3
   controller_msgs
 )
