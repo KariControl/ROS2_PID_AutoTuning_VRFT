@@ -39,8 +39,6 @@ void ControllerNode::timer_callback() {
     integral_= pre_integral_+error * dt_;
     double derivative = (error - last_error_) / dt_;
     double output = kp_ * error + ki_ * integral_ + kd_ * derivative;
-    // float output = kp_ * error + ki_ * integral_;
-    // float output = kp_ * error;
 
     pre_integral_ = integral_;
     last_error_=error;
