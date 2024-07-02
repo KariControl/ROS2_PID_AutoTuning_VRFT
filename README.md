@@ -4,8 +4,7 @@
 参考文献：
 Campi, M. C., Lecchini, A., & Savaresi, S. M. (2002). Virtual reference feedback tuning: a direct method for the design of feedback controllers. Automatica, 38(8), 1337-1346.
 
-本ソフトにおけるqiita記事：
-後ほど更新。
+本ソフトにおけるqiita記事：https://qiita.com/KariControl/items/8e269415692312a6c5f4
 
 # 環境
 OS:ubuntu 22.04
