@@ -32,14 +32,16 @@ void ControllerNode::state_callback(const geometry_msgs::msg::TwistStamped::Shar
     velocity_ = msg->twist.linear.x;
 }
 void ControllerNode::timer_callback() {
-    double error = setpoint_ - velocity_;
+    double error;
     static double pre_integral_ = 0.0;
     static double last_error_ = 0.0;
- 
-    integral_= pre_integral_+error * dt_;
-    double derivative = (error - last_error_) / dt_;
-    double output = kp_ * error + ki_ * integral_ + kd_ * derivative;
+    double derivative;
+    double output;
 
+    error=setpoint_ - velocity_;
+    derivative=(error - last_error_) / dt_;
+    integral_= pre_integral_+error * dt_;
+    output=kp_ * error + ki_ * integral_ + kd_ * derivative;
     pre_integral_ = integral_;
     last_error_=error;
 

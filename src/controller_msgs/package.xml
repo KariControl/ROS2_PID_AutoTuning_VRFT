@@ -4,7 +4,7 @@
   <name>controller_msgs</name>
   <version>0.0.0</version>
   <description>TODO: Package description</description>
-  <maintainer email="trial481@outlook.jp">motoya</maintainer>
+  <maintainer email="KariControl@todo.todo">KariControl</maintainer>
   <license>TODO: License declaration</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
